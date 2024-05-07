@@ -20,7 +20,7 @@ const vel2 = calcNewVel(vel, acc, time); //calculates new velocity based on acce
 
 // Pick up an error with how the function below is called and make it robust to such errors
  const calcNewVel = (vel, acc, time) => { 
-  return vel + (acc*time);
+  return vel + (acc*(time*3.6));
 }
 
 
