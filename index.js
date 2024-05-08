@@ -22,7 +22,7 @@ const rf = fuel - (fbr*time); //calculates remaining fuel
   return vel + (acc*(time*3.6));
 }
 
-const vel2 = calcNewVel(velocity, accelaration, time);
+const vel2 = calcNewVel(vel, acc, time);
 
 console.log(`Corrected New Velocity: ${vel2} km/h`);
 console.log(`Corrected New Distance: ${d2} km`);
