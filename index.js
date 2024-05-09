@@ -13,25 +13,32 @@ const initialDistance = 0; // distance (km)
 const remainingFuel = 5000; // remaining fuel (kg)
 const fuelBurnRate = 0.5; // fuel burn rate (kg/s)
 
-//calcultes new distance
-const newDistance = initialDistance + (initialVelocity*(timeSeconds/3600)); 
-
-//calculates remaining fuel
-const remainingfuelAfterBurnRate= remainingFuel - (fuelBurnRate*timeSeconds); 
-
-// Calculate new velocity
- const calculateNewVelocity = (velocity, acceleration, time) => { 
-  return velocity + (acceleration*(time*3.6));
+try {
+  //calculate new distance
+  const newDistance = initialDistance + (initialVelocity*(3600/3600));
+  console.log(`Corrected New Distance: ${newDistance} km`);
+} catch (error) {
+  console.error("Error calculating new distance:", error);
 }
-//Ensure the function call is robust and catches errors
-const newVelocity = calculateNewVelocity(initialVelocity, acceleration, timeSeconds);
 
-console.log(`Corrected New Velocity: ${newVelocity} km/h`);
-console.log(`Corrected New Distance: ${newDistance} km`);
-console.log(`Corrected Remaining Fuel: ${fuelBurnRate} kg`);
+try {
+  //calculates remaining fuel
+  const remainingFuelAfterBurnRate = remainingFuel - (fuelBurnRate*timeSeconds);
+  console.log(`Corrected Remaining Fuel: ${remainingFuelAfterBurnRate} kg`);
+} catch (error) {
+  console.error("Error calculating remaining fuel:", error);
+}
 
-
-
+try {
+  //calculate new velocity
+  const calculateNewVelocity = (velocity, acceleration, time) => {
+    return velocity + (acceleration*(time*3.6));
+  }
+  const newVelocity = calculateNewVelocity(initialVelocity, acceleration, timeSeconds);
+  console.log(`Corrected new velocity: ${newVelocity} km/h`);
+} catch (error) {
+  console.error("Error calculating new velocity:", error);
+}
 
 
 
